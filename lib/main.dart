@@ -8,13 +8,20 @@ void main() {
         appBar: AppBar(
           title: Text("Flutter Dev Poa"),
         ),
-        body: Home(),
+        body: HomeScreen(),
       ),
     ),
   );
 }
 
-class Home extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<HomeScreen> {
+  var likeCount = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,24 +35,44 @@ class Home extends StatelessWidget {
               child: Row(
                 children: [
                   Center(
-                      child: Text("FlutterDevPoa #1 - Inauguração!", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) )),
+                      child: Text("FlutterDevPoa #1 - Inauguração!",
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))),
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
             ),
             Image.network("https://secure.meetupstatic.com/photos/event/3/4/6/1/600_483433409.jpeg"),
             Padding(
-              padding: const EdgeInsets.all(32),
-              child: Text(description),
+              padding: const EdgeInsets.all(16),
+              child: Text(description, style: TextStyle(fontSize: 18)),
             ),
-            Padding(
-              padding: const EdgeInsets.all(32),
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.thumb_up, color: Colors.blue,),
-                  Text("(0)")
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      likeCount++;
+                    });
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Icon(Icons.thumb_up, color: Colors.blue),
+                  ),
+                ),
+                Text('($likeCount)', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      likeCount--;
+                    });
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Icon(Icons.thumb_down, color: Colors.blue),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
