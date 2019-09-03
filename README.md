@@ -5,5 +5,4 @@ App desenvolvido durante o live-coding do 2º encontro do FlutterDevPoa, durante
 | ---------------------------------|
 | ![original](images/Template.png) |
 | Resultado                        |  
-| ---------------------------------|
 | ![resultado](images/App.png)     |
