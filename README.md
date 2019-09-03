@@ -4,7 +4,6 @@ App desenvolvido durante o live-coding do 2º encontro do FlutterDevPoa, durante
 | Original                         |  
 | ---------------------------------|
 | ![original](images/Template.png) |
-| ---------------------------------|
 | Resultado                        |  
 | ---------------------------------|
 | ![resultado](images/App.png)     |
